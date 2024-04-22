@@ -7,7 +7,7 @@ APP_NAME=go-categories-api
 default: run-with-docs
 
 run:
-	@go run ./cmd/api/main.go
+	@air run
 run-with-docs:
 	@swag init
 	@go run ./cmd/api/main.go
