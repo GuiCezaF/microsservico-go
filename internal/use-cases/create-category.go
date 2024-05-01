@@ -1,8 +1,6 @@
 package use_cases
 
 import (
-	"log"
-
 	"github.com/GuiCezaF/microsservico-go/internal/entities"
 	"github.com/GuiCezaF/microsservico-go/internal/repositories"
 )
@@ -22,7 +20,7 @@ func (u *createCategoryUseCase) Execute(name string) error {
 		return err
 	}
 
-	log.Println(category)
+	//TODO Verify if category name already exists
 	err = u.repository.Save(category)
 
 	if err != nil {
