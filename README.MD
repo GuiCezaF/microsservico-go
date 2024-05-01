@@ -1,6 +1,6 @@
 ## Requirements
 - [X] create an http server
-- [ ] the api should be able to create a new category
+- [X] the api should be able to create a new category
 - [ ] the api should be able to list all categories
 - [ ] the api should be able to get a category
 - [ ] the api should be able to delete a new category

@@ -4,14 +4,15 @@ import (
 	"log"
 
 	"github.com/GuiCezaF/microsservico-go/internal/entities"
+	"github.com/GuiCezaF/microsservico-go/internal/repositories"
 )
 
 type createCategoryUseCase struct {
-	// db
+	repository repositories.ICategoryRepository
 }
 
-func NewCreateCategoryUseCase() *createCategoryUseCase {
-	return &createCategoryUseCase{}
+func NewCreateCategoryUseCase(repository repositories.ICategoryRepository) *createCategoryUseCase {
+	return &createCategoryUseCase{repository}
 }
 
 func (u *createCategoryUseCase) Execute(name string) error {
@@ -21,9 +22,12 @@ func (u *createCategoryUseCase) Execute(name string) error {
 		return err
 	}
 
-	// TODO: Persist entity to db
-
 	log.Println(category)
+	err = u.repository.Save(category)
+
+	if err != nil {
+		return err
+	}
 
 	return nil
 }
